@@ -9,6 +9,42 @@ const routes = [
   { path: '/reference', component: ReferencePage },
   { path: '/workbook', component: Workbook },
   { path: '/contact', component: Contact },
+  {
+    path: '/workbook/algorithm',
+    component: () => import('../views/workbook/Algorithm.vue'),
+  },
+  {
+    path: '/workbook/array',
+    component: () => import('../views/workbook/Array.vue'),
+  },
+  {
+    path: '/workbook/list',
+    component: () => import('../views/workbook/List.vue'),
+  },
+  {
+    path: '/workbook/queue-stack',
+    component: () => import('../views/workbook/QueueStack.vue'),
+  },
+  {
+    path: '/workbook/tree',
+    component: () => import('../views/workbook/TreeStructure.vue'),
+  },
+  {
+    path: '/workbook/sort',
+    component: () => import('../views/workbook/DataSorting.vue'),
+  },
+  {
+    path: '/workbook/search',
+    component: () => import('../views/workbook/DataSearching.vue'),
+  },
+  {
+    path: '/workbook/complexity',
+    component: () => import('../views/workbook/AlgorithmComplexity.vue'),
+  },
+  {
+    path: '/workbook/attribute',
+    component: () => import('../views/workbook/ProgramAttributes.vue'),
+  },
 ]
 
 const router = createRouter({
