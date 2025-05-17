@@ -7,6 +7,7 @@
 
     <!-- ナビゲーションバー -->
     <div class="navbar">
+      <router-link to="/" class="nav-item">ホーム</router-link>
       <router-link to="/reference" class="nav-item">参考書</router-link>
       <router-link to="/workbook" class="nav-item">問題集</router-link>
       <router-link to="/contact" class="nav-item">お問い合わせ</router-link>
