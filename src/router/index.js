@@ -45,6 +45,42 @@ const routes = [
     path: '/workbook/attribute',
     component: () => import('../views/workbook/ProgramAttributes.vue'),
   },
+  {
+    path: '/reference/algorithm',
+    component: () => import('../views/reference/Algorithm.vue'),
+  },
+  {
+    path: '/reference/array',
+    component: () => import('../views/reference/Array.vue'),
+  },
+  {
+    path: '/reference/list',
+    component: () => import('../views/reference/List.vue'),
+  },
+  {
+    path: '/reference/queue-stack',
+    component: () => import('../views/reference/QueueStack.vue'),
+  },
+  {
+    path: '/reference/tree',
+    component: () => import('../views/reference/TreeStructure.vue'),
+  },
+  {
+    path: '/reference/sort',
+    component: () => import('../views/reference/DataSorting.vue'),
+  },
+  {
+    path: '/reference/search',
+    component: () => import('../views/reference/DataSearching.vue'),
+  },
+  {
+    path: '/reference/complexity',
+    component: () => import('../views/reference/AlgorithmComplexity.vue'),
+  },
+  {
+    path: '/reference/attribute',
+    component: () => import('../views/reference/ProgramAttributes.vue'),
+  },
 ]
 
 const router = createRouter({

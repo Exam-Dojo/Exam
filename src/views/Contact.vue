@@ -1,15 +1,14 @@
 <template>
   <div class="contact-page">
     <h1>お問い合わせフォーム</h1>
-    <p>＊ お問い合わせ内容には全て目を通しており不具合等は適宜修正しておりますが、返信先メールアドレスを記載していただいた場合でも、返信を保証するわけではございませんのでご了承ください</p>
+    <p>
+      ＊
+      お問い合わせ内容には全て目を通しており不具合等は適宜修正しておりますが、返信先メールアドレスを記載していただいた場合でも、返信を保証するわけではございませんのでご了承ください
+    </p>
     <p>＊ 過去問題について個別の解説を求められても、諸事情により対応することはできかねます。</p>
 
     <!-- Formspreeへ送信するフォーム -->
-    <form
-      action="https://formspree.io/f/【ここにあなたのID】"
-      method="POST"
-      class="contact-form"
-    >
+    <form action="https://formspree.io/f/【ここにあなたのID】" method="POST" class="contact-form">
       <!-- 名前 -->
       <div class="form-group">
         <label for="name">お名前</label>
@@ -36,7 +35,7 @@
 
 <script>
 export default {
-  name: 'ContactPage'
+  name: 'ContactPage',
 }
 </script>
 
