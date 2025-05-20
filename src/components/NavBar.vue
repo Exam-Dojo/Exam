@@ -30,41 +30,42 @@ export default {
 .header-title {
   width: 525px;
   height: 76px;
-  justify-content: center;
   display: flex;
   flex-direction: column;
+  justify-content: center; /* ← 中央→左寄せ */
+  align-items: flex-start; /* ← 横方向にも左寄せ */
   color: black;
-  font-size: 40px;
+  font-size: 28px;
   font-family: Inter;
   font-weight: 500;
-  line-height: 60px;
+  line-height: 40px;
   word-wrap: break-word;
   cursor: pointer;
-  margin: 0 auto;
+  margin-left: 20px; /* ← 画面端から少し余白を持たせる */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.navbar {
-  width: 100%;
-  height: 70px;
-  background: linear-gradient(90deg, #6e6e6e, #a0a0a0);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .nav-item {
   margin: 0 25px;
   padding: 10px 15px;
   color: white;
-  font-size: 28px;
+  font-size: 20px; /* ← ここを変更 */
   font-family: Inter;
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
+}
+
+.navbar {
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(90deg, #6e6e6e, #a0a0a0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .nav-item:hover {
