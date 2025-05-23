@@ -32,7 +32,7 @@ export default {
     return {
       topics: [
         { name: 'アルゴリズム', link: '/workbook/algorithm' },
-        { name: '配列', link: '/workbook/array' },
+        { name: '配列', link: '/workbook/array1' },
         { name: 'リスト', link: '/workbook/list' },
         { name: 'キューとスタック', link: '/workbook/queue-stack' },
         { name: '木構造', link: '/workbook/tree' },
