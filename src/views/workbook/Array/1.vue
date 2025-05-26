@@ -48,11 +48,20 @@
         <button :disabled="selected" @click="selectAnswer('エ')">エ</button>
       </div>
     </div>
-    <div class="navigation">
-      <router-link to="/workbook/array2">
-        <button class="nav-button">次の問題 ▶</button>
-      </router-link>
+
+    <!-- 状態操作 -->
+    <div class="toolbar">
+      <button :class="['review-button', { marked: isMarkedForReview }]" @click="markForReview">
+        <span v-if="isMarkedForReview">✅ 後で見直す</span>
+        <span v-else>後で見直す</span>
+      </button>
     </div>
+
+    <!-- ステータス再表示ボタン -->
+    <button class="reopen-popup" v-if="!showPopup" @click="handleOpenPopup">解答状況を表示</button>
+
+    <!-- ステータス吹き出し -->
+    <StatusPopup v-if="showPopup" :status-map="statusMap" @close="handleClosePopup" />
 
     <!-- 判定表示 -->
     <div class="judge" v-if="selected !== null">
@@ -73,36 +82,64 @@
       </p>
       <button class="reset-button" @click="resetSelection">やり直す</button>
     </div>
+
+    <!-- ナビゲーション -->
+    <div class="navigation">
+      <router-link to="/workbook/array2">
+        <button class="nav-button">次の問題 ▶</button>
+      </router-link>
+    </div>
   </div>
 </template>
 
 <script>
+import StatusPopup from '../../../components/StatusPopup.vue'
+
 export default {
   name: 'ArrayPage',
+  components: { StatusPopup },
+  props: ['statusMap'],
   data() {
     return {
       selected: null,
       correctAnswer: 'ア',
-      isCorrect: null, // true or false
+      isCorrect: null,
+      showPopup: sessionStorage.getItem('showPopup') !== 'false',
+      isMarkedForReview: false,
     }
+  },
+  computed: {
+    number() {
+      return 1
+    },
   },
   methods: {
     selectAnswer(choice) {
       this.selected = choice
       this.isCorrect = choice === this.correctAnswer
-
-      // スクロールと解答状況更新処理など（前述コードと統合）
+      this.$emit('update-status', { number: this.number, status: 'answered' })
       this.$nextTick(() => {
         const explanation = this.$refs.explanation
         if (explanation) explanation.scrollIntoView({ behavior: 'smooth' })
       })
-
-      // 解答状況を更新（仮想例：グローバル or 状態管理）
-      // this.$root.statusMap[1].status = 'answered';
+    },
+    markForReview() {
+      this.isMarkedForReview = !this.isMarkedForReview
+      const status = this.isMarkedForReview ? 'review' : 'unanswered'
+      this.$emit('update-status', { number: this.number, status })
     },
     resetSelection() {
       this.selected = null
       this.isCorrect = null
+      this.isMarkedForReview = false
+    },
+    handleClosePopup() {
+      this.showPopup = false
+      sessionStorage.setItem('showPopup', 'false')
+    },
+    handleOpenPopup() {
+      this.showPopup = true
+      sessionStorage.setItem('showPopup', 'true')
     },
   },
 }
@@ -129,11 +166,11 @@ export default {
 }
 .buttons {
   display: flex;
-  justify-content: center; /* 中央寄せ */
+  justify-content: center;
   gap: 1.5rem;
-  flex-wrap: wrap; /* 小さい画面では折り返す */
+  flex-wrap: wrap;
   margin: 1rem auto 2rem auto;
-  max-width: 600px; /* レイアウトが崩れすぎないように制限 */
+  max-width: 600px;
 }
 .buttons button {
   padding: 0.6rem 1.8rem;
@@ -151,7 +188,6 @@ export default {
   background-color: #ddd;
   cursor: not-allowed;
 }
-
 .explanation {
   background-color: #f9f9f9;
   border-left: 5px solid #2c3e50;
@@ -197,5 +233,36 @@ export default {
 .incorrect {
   color: red;
   font-weight: bold;
+}
+.toolbar {
+  text-align: center;
+  margin-top: 1rem;
+}
+.toolbar button {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+}
+.review-button.marked {
+  background-color: #ffecb3;
+  color: #d17c00;
+  font-weight: bold;
+  border: 1px solid #d17c00;
+}
+.reopen-popup {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1001;
+  font-size: 0.9rem;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.reopen-popup:hover {
+  background-color: #43a047;
 }
 </style>

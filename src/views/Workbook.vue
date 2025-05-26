@@ -5,7 +5,7 @@
       <ul class="topic-list">
         <li v-for="item in topics" :key="item.name" class="topic-item">
           <span>{{ item.name }}</span>
-          <button @click="goToPage(item.link)">説明ページへ</button>
+          <button @click="goToPage(item.link)">問題を解く</button>
         </li>
       </ul>
     </section>
