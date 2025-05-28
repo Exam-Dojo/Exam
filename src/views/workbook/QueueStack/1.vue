@@ -1,11 +1,46 @@
 <template>
   <div class="array-page">
-    <h2>分野：配列</h2>
+    <h2>分野：リスト</h2>
 
     <!-- 問題文 -->
+    <div class="question">
+      <p><strong>問1</strong></p>
+      <p><code>uniqueSort({3,1,2,3,2,1,4})</code> の戻り値はどれか。</p>
+      <p>
+        関数 uniqueSort は、整数配列 A から重複を排除し、昇順にソートした配列を返す。
+        ここでは一旦重複排除後、簡易のバブルソートを適用するとする。
+      </p>
+    </div>
+
+    <!-- プログラム -->
+    <pre class="program">
+〈プログラム〉
+
+○整数型の配列: uniqueSort(整数型の配列: A)
+  整数型の配列: uniq ← {}
+  整数型: i, j, tmp
+  // 重複排除
+  for (i を 1 から Aの要素数 まで)
+    // A[i] が uniq に未登録なら追加
+    if (for all j in 1..uniqの要素数: uniq[j] ≠ A[i])
+      uniqの末尾 に A[i] を追加
+    endif
+  endfor
+  // バブルソート
+  for (i を 1 から uniqの要素数 - 1)
+    for (j を 1 から uniqの要素数 - i)
+      if (uniq[j] > uniq[j+1])
+        tmp ← uniq[j]; uniq[j] ← uniq[j+1]; uniq[j+1] ← tmp
+      endif
+    endfor
+  endfor
+  return uniq
+    </pre>
 
     <!-- 選択肢 -->
     <div class="choices">
+      <p class="choice-labels">ア. {1,2,3,4} イ {4,3,2,1} ウ {3,1,2,4} エ {1,4,2,3}</p>
+
       <div class="buttons">
         <button :disabled="selected" @click="selectAnswer('ア')">ア</button>
         <button :disabled="selected" @click="selectAnswer('イ')">イ</button>
@@ -50,10 +85,7 @@
 
     <!-- ナビゲーション -->
     <div class="navigation">
-      <router-link to="/workbook/array3">
-        <button class="nav-button">◀ 前の問題</button>
-      </router-link>
-      <router-link to="/workbook/array5">
+      <router-link to="/workbook/array2">
         <button class="nav-button">次の問題 ▶</button>
       </router-link>
     </div>
@@ -78,7 +110,7 @@ export default {
   },
   computed: {
     number() {
-      return 4
+      return 1
     },
   },
   methods: {

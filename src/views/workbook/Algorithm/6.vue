@@ -1,11 +1,43 @@
 <template>
-  <div class="array-page">
-    <h2>分野：配列</h2>
+  <div class="algorithm-page">
+    <h2>分野：アルゴリズム</h2>
 
     <!-- 問題文 -->
+    <div class="question">
+      <p><strong>問6</strong></p>
+      <p><code>uniqueSort({3,1,2,3,2,1,4})</code> の戻り値はどれか。</p>
+      <p>
+        関数 uniqueSort は、整数配列 A から重複を排除し、昇順にソートした配列を返す。
+        ここでは一旦重複排除後、簡易のバブルソートを適用するとする。
+      </p>
+    </div>
+
+    <!-- プログラム -->
+    <pre class="program">
+〈プログラム〉
+
+○整数型の配列: uniqueSort(整数型の配列: A)
+  整数型の配列: uniq ← {}
+  整数型: i, j, tmp
+  // 重複排除
+  for (i を 1 から Aの要素数 まで)
+    if (for all j in 1..uniqの要素数: uniq[j] ≠ A[i])
+      uniqの末尾 に A[i] を追加
+    endif
+  endfor
+  for (i を 1 から uniqの要素数 - 1)
+    for (j を 1 から uniqの要素数 - i)
+      if (uniq[j] > uniq[j+1])
+        tmp ← uniq[j]; uniq[j] ← uniq[j+1]; uniq[j+1] ← tmp
+      endif
+    endfor
+  endfor
+  return uniq
+    </pre>
 
     <!-- 選択肢 -->
     <div class="choices">
+      <p class="choice-labels">ア. {1,2,3,4} イ {4,3,2,1} ウ {3,1,2,4} エ {1,4,2,3}</p>
       <div class="buttons">
         <button :disabled="selected" @click="selectAnswer('ア')">ア</button>
         <button :disabled="selected" @click="selectAnswer('イ')">イ</button>
@@ -14,7 +46,6 @@
       </div>
     </div>
 
-    <!-- 状態操作 -->
     <div class="toolbar">
       <button :class="['review-button', { marked: isMarkedForReview }]" @click="markForReview">
         <span v-if="isMarkedForReview">✅ 後で見直す</span>
@@ -22,19 +53,15 @@
       </button>
     </div>
 
-    <!-- ステータス再表示ボタン -->
     <button class="reopen-popup" v-if="!showPopup" @click="handleOpenPopup">解答状況を表示</button>
 
-    <!-- ステータス吹き出し -->
     <StatusPopup v-if="showPopup" :status-map="statusMap" @close="handleClosePopup" />
 
-    <!-- 判定表示 -->
     <div class="judge" v-if="selected !== null">
       <p v-if="isCorrect" class="correct">正解です！🎉</p>
       <p v-else class="incorrect">不正解です。正解は「{{ correctAnswer }}」です。</p>
     </div>
 
-    <!-- 解説 -->
     <div class="explanation" v-if="selected" ref="explanation">
       <h3>◎解説</h3>
       <ol>
@@ -48,12 +75,11 @@
       <button class="reset-button" @click="resetSelection">やり直す</button>
     </div>
 
-    <!-- ナビゲーション -->
     <div class="navigation">
-      <router-link to="/workbook/array3">
+      <router-link to="/workbook/array5">
         <button class="nav-button">◀ 前の問題</button>
       </router-link>
-      <router-link to="/workbook/array5">
+      <router-link to="/workbook/array7">
         <button class="nav-button">次の問題 ▶</button>
       </router-link>
     </div>
@@ -64,7 +90,7 @@
 import StatusPopup from '../../../components/StatusPopup.vue'
 
 export default {
-  name: 'ArrayPage',
+  name: 'AlgorithmPage',
   components: { StatusPopup },
   props: ['statusMap'],
   data() {
@@ -78,7 +104,7 @@ export default {
   },
   computed: {
     number() {
-      return 4
+      return 6
     },
   },
   methods: {
