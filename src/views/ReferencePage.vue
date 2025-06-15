@@ -9,19 +9,6 @@
         </li>
       </ul>
     </section>
-
-    <section class="section">
-      <h2>オプション機能</h2>
-      <p>今後、問題のランダム出題機能や、タイマー付きの模擬テスト機能などを追加予定です。</p>
-    </section>
-
-    <section class="section">
-      <h2>更新履歴</h2>
-      <ul>
-        <li>2025/05/14 - 問題集リンクボタン追加</li>
-        <li>2025/05/12 - Workbookページ作成</li>
-      </ul>
-    </section>
   </div>
 </template>
 
@@ -31,15 +18,13 @@ export default {
   data() {
     return {
       topics: [
-        { name: 'アルゴリズム', link: '/reference/algorithm' },
+        { name: '文法', link: '/reference/grammar' },
         { name: '配列', link: '/reference/array' },
         { name: 'リスト', link: '/reference/list' },
         { name: 'キューとスタック', link: '/reference/queue-stack' },
         { name: '木構造', link: '/reference/tree' },
         { name: 'データの整列', link: '/reference/sort' },
         { name: 'データの探索', link: '/reference/search' },
-        { name: 'アルゴリズムの計算量', link: '/reference/complexity' },
-        { name: 'プログラムの属性', link: '/reference/attribute' },
       ],
     }
   },

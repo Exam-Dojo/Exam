@@ -31,15 +31,13 @@ export default {
   data() {
     return {
       topics: [
-        { name: 'アルゴリズム', link: '/workbook/algorithm1' },
+        { name: '文法', link: '/workbook/grammar1' },
         { name: '配列', link: '/workbook/array1' },
         { name: 'リスト', link: '/workbook/list1' },
         { name: 'キューとスタック', link: '/workbook/queue-stack1' },
         { name: '木構造', link: '/workbook/tree-structure1' },
         { name: 'データの整列', link: '/workbook/data-sorting1' },
         { name: 'データの探索', link: '/workbook/data-searching1' },
-        { name: 'アルゴリズムの計算量', link: '/workbook/complexity1' },
-        { name: 'プログラムの属性', link: '/workbook/program-attributes1' },
       ],
     }
   },
