@@ -4,7 +4,7 @@
     <h3>🗂 解答状況</h3>
     <ul>
       <li v-for="n in 10" :key="n" class="status-item">
-        <router-link :to="'/workbook/array' + n" class="status-link">
+        <router-link :to="basePath + n" class="status-link">
           問{{ n }}:
           <span :class="'status ' + statusMap[n]">
             {{ getLabel(statusMap[n]) }}
@@ -18,7 +18,13 @@
 
 <script>
 export default {
-  props: ['statusMap'],
+  props: {
+    statusMap: Object,
+    basePath: {
+      type: String,
+      required: true,
+    },
+  },
   methods: {
     getLabel(status) {
       return (
