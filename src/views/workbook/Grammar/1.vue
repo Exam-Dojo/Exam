@@ -1,10 +1,10 @@
 <template>
-  <div class="algorithm-page">
-    <h2>分野：アルゴリズム</h2>
+  <div class="grammer-page">
+    <h2>分野：文法</h2>
 
     <!-- 問題画像 -->
     <div class="question-image">
-      <img src="@/assets/grammer1.png" alt="問1の問題文画像" />
+      <img src="@/assets/grammer/grammer1.png" alt="問1の問題文画像" />
     </div>
 
     <!-- 選択ボタン -->
@@ -27,7 +27,13 @@
     <button class="reopen-popup" v-if="!showPopup" @click="handleOpenPopup">解答状況を表示</button>
 
     <!-- ステータス吹き出し -->
-    <StatusPopup v-if="showPopup" :status-map="statusMap" @close="handleClosePopup" />
+    <!-- ステータス吹き出し（basePathを指定） -->
+    <StatusPopup
+      v-if="showPopup"
+      :status-map="statusMap"
+      :basePath="'/workbook/grammar'"
+      @close="handleClosePopup"
+    />
 
     <!-- 判定表示 -->
     <div class="judge" v-if="selected !== null">
@@ -38,7 +44,7 @@
     <!-- 解説 -->
     <div class="explanation" v-if="selected" ref="explanation">
       <div class="question-image">
-        <img src="@/assets/grammer1answer.png" alt="問1の解説文画像" />
+        <img src="@/assets/grammer/grammer1answer.png" alt="問1の解説文画像" />
       </div>
       <button class="reset-button" @click="resetSelection">やり直す</button>
     </div>
@@ -56,7 +62,7 @@
 import StatusPopup from '../../../components/StatusPopup.vue'
 
 export default {
-  name: 'AlgorithmPage',
+  name: 'GrammerPage',
   components: { StatusPopup },
   props: ['statusMap'],
   data() {
@@ -106,7 +112,7 @@ export default {
 </script>
 
 <style scoped>
-.algorithm-page {
+.grammer-page {
   padding: 2rem;
   font-family: sans-serif;
   line-height: 1.6;
