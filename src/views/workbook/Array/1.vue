@@ -1,57 +1,50 @@
 <template>
-  <div class="array-page">
+  <div class="algorithm-page">
     <h2>分野：配列</h2>
-
-    <!-- 問題文 -->
-
-    <!-- 選択肢 -->
-    <div class="choices">
-      <div class="buttons">
-        <button :disabled="selected" @click="selectAnswer('ア')">ア</button>
-        <button :disabled="selected" @click="selectAnswer('イ')">イ</button>
-        <button :disabled="selected" @click="selectAnswer('ウ')">ウ</button>
-        <button :disabled="selected" @click="selectAnswer('エ')">エ</button>
-      </div>
+    <!-- 問題画像 -->
+    <div class="question-image">
+      <img src="@/assets/Array/array1.png" alt="問1の問題文画像" />
     </div>
-
+    <!-- 選択ボタン -->
+    <div class="buttons">
+      <button :disabled="selected" @click="selectAnswer('ア')">ア</button>
+      <button :disabled="selected" @click="selectAnswer('イ')">イ</button>
+      <button :disabled="selected" @click="selectAnswer('ウ')">ウ</button>
+      <button :disabled="selected" @click="selectAnswer('エ')">エ</button>
+    </div>
     <!-- 状態操作 -->
     <div class="toolbar">
       <button :class="['review-button', { marked: isMarkedForReview }]" @click="markForReview">
-        <span v-if="isMarkedForReview">✅ 後で見直す</span>
+        <span v-if="isMarkedForReview">:チェックマーク_緑: 後で見直す</span>
         <span v-else>後で見直す</span>
       </button>
     </div>
-
     <!-- ステータス再表示ボタン -->
     <button class="reopen-popup" v-if="!showPopup" @click="handleOpenPopup">解答状況を表示</button>
-
     <!-- ステータス吹き出し -->
-    <StatusPopup v-if="showPopup" :status-map="statusMap" @close="handleClosePopup" />
-
+    <!-- ステータス吹き出し（basePathを指定） -->
+    <StatusPopup
+      v-if="showPopup"
+      :status-map="statusMap"
+      :basePath="'/workbook/array'"
+      @close="handleClosePopup"
+    />
     <!-- 判定表示 -->
     <div class="judge" v-if="selected !== null">
-      <p v-if="isCorrect" class="correct">正解です！🎉</p>
+      <p v-if="isCorrect" class="correct">正解です！:クラッカー:</p>
       <p v-else class="incorrect">不正解です。正解は「{{ correctAnswer }}」です。</p>
     </div>
-
     <!-- 解説 -->
     <div class="explanation" v-if="selected" ref="explanation">
-      <h3>◎解説</h3>
-      <ol>
-        <li>重複排除で得る uniq は、初出順に {3,1,2,4}</li>
-        <li>これをバブルソートで昇順に並べ替えると {1,2,3,4}</li>
-      </ol>
-      <p>
-        よって正解は <strong>{{ correctAnswer }}</strong
-        >。
-      </p>
+      <div class="question-image">
+        <img src="@/assets/Array/array1.png" alt="問1の解説文画像" />
+      </div>
       <button class="reset-button" @click="resetSelection">やり直す</button>
     </div>
-
     <!-- ナビゲーション -->
     <div class="navigation">
       <router-link to="/workbook/array2">
-        <button class="nav-button">次の問題 ▶</button>
+        <button class="nav-button">次の問題 :再生ボタン:</button>
       </router-link>
     </div>
   </div>
@@ -59,7 +52,6 @@
 
 <script>
 import StatusPopup from '../../../components/StatusPopup.vue'
-
 export default {
   name: 'ArrayPage',
   components: { StatusPopup },
@@ -111,23 +103,20 @@ export default {
 </script>
 
 <style scoped>
-.array-page {
+.algorithm-page {
   padding: 2rem;
   font-family: sans-serif;
   line-height: 1.6;
 }
-.program {
-  background: #f0f0f0;
-  padding: 1rem;
-  font-family: monospace;
-  white-space: pre-wrap;
+.question-image {
+  text-align: center;
   margin: 1rem 0;
 }
-.choices {
-  margin-top: 1rem;
-}
-.choices p {
-  margin-bottom: 0.5rem;
+.question-image img {
+  max-width: 55%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 .buttons {
   display: flex;
@@ -143,19 +132,19 @@ export default {
   cursor: pointer;
   border: 1px solid #aaa;
   border-radius: 5px;
-  background-color: #f0f0f0;
+  background-color: #F0F0F0;
   transition: background-color 0.3s ease;
 }
 .buttons button:hover:enabled {
-  background-color: #e0e0e0;
+  background-color: #E0E0E0;
 }
 .buttons button:disabled {
   background-color: #ddd;
   cursor: not-allowed;
 }
 .explanation {
-  background-color: #f9f9f9;
-  border-left: 5px solid #2c3e50;
+  background-color: #F9F9F9;
+  border-left: 5px solid #2C3E50;
   padding: 1rem;
 }
 .explanation h3 {
@@ -167,12 +156,6 @@ export default {
   font-size: 0.9rem;
   cursor: pointer;
 }
-.choice-labels {
-  text-align: center;
-  font-size: 1.05rem;
-  margin-bottom: 0.8rem;
-  line-height: 1.8;
-}
 .navigation {
   text-align: center;
   margin-top: 2rem;
@@ -182,7 +165,7 @@ export default {
   font-size: 1rem;
   cursor: pointer;
   margin: 0 0.5rem;
-  background-color: #e3e3e3;
+  background-color: #E3E3E3;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -208,17 +191,17 @@ export default {
   padding: 0.5rem 1rem;
 }
 .review-button.marked {
-  background-color: #ffecb3;
-  color: #d17c00;
+  background-color: #FFECB3;
+  color: #D17C00;
   font-weight: bold;
-  border: 1px solid #d17c00;
+  border: 1px solid #D17C00;
 }
 .reopen-popup {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
   padding: 0.4rem 0.8rem;
-  background-color: #4caf50;
+  background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 6px;
@@ -228,6 +211,6 @@ export default {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 .reopen-popup:hover {
-  background-color: #43a047;
+  background-color: #43A047;
 }
 </style>
