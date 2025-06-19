@@ -1,51 +1,21 @@
 <template>
-  <div class="array-page">
+  <div class="list-page">
     <h2>分野：リスト</h2>
 
-    <!-- 問題文 -->
-    <div class="question">
-      <p><strong>問6</strong></p>
-      <p><code>uniqueSort({3,1,2,3,2,1,4})</code> の戻り値はどれか。</p>
-      <p>
-        関数 uniqueSort は、整数配列 A から重複を排除し、昇順にソートした配列を返す。
-        ここでは一旦重複排除後、簡易のバブルソートを適用するとする。
-      </p>
+    <!-- 問題画像 -->
+    <div class="question-image">
+      <img src="@/assets/list/list8.png" alt="問8の問題文画像" />
     </div>
 
-    <!-- プログラム -->
-    <pre class="program">
-〈プログラム〉
-
-○整数型の配列: uniqueSort(整数型の配列: A)
-  整数型の配列: uniq ← {}
-  整数型: i, j, tmp
-  // 重複排除
-  for (i を 1 から Aの要素数 まで)
-    if (for all j in 1..uniqの要素数: uniq[j] ≠ A[i])
-      uniqの末尾 に A[i] を追加
-    endif
-  endfor
-  for (i を 1 から uniqの要素数 - 1)
-    for (j を 1 から uniqの要素数 - i)
-      if (uniq[j] > uniq[j+1])
-        tmp ← uniq[j]; uniq[j] ← uniq[j+1]; uniq[j+1] ← tmp
-      endif
-    endfor
-  endfor
-  return uniq
-    </pre>
-
-    <!-- 選択肢 -->
-    <div class="choices">
-      <p class="choice-labels">ア. {1,2,3,4} イ {4,3,2,1} ウ {3,1,2,4} エ {1,4,2,3}</p>
-      <div class="buttons">
-        <button :disabled="selected" @click="selectAnswer('ア')">ア</button>
-        <button :disabled="selected" @click="selectAnswer('イ')">イ</button>
-        <button :disabled="selected" @click="selectAnswer('ウ')">ウ</button>
-        <button :disabled="selected" @click="selectAnswer('エ')">エ</button>
-      </div>
+    <!-- 選択ボタン -->
+    <div class="buttons">
+      <button :disabled="selected" @click="selectAnswer('ア')">ア</button>
+      <button :disabled="selected" @click="selectAnswer('イ')">イ</button>
+      <button :disabled="selected" @click="selectAnswer('ウ')">ウ</button>
+      <button :disabled="selected" @click="selectAnswer('エ')">エ</button>
     </div>
 
+    <!-- 状態操作 -->
     <div class="toolbar">
       <button :class="['review-button', { marked: isMarkedForReview }]" @click="markForReview">
         <span v-if="isMarkedForReview">✅ 後で見直す</span>
@@ -53,33 +23,37 @@
       </button>
     </div>
 
+    <!-- ステータス再表示ボタン -->
     <button class="reopen-popup" v-if="!showPopup" @click="handleOpenPopup">解答状況を表示</button>
 
-    <StatusPopup v-if="showPopup" :status-map="statusMap" @close="handleClosePopup" />
+    <!-- ステータス吹き出し -->
+    <StatusPopup
+      v-if="showPopup"
+      :status-map="statusMap"
+      :basePath="'/workbook/list'"
+      @close="handleClosePopup"
+    />
 
+    <!-- 判定表示 -->
     <div class="judge" v-if="selected !== null">
       <p v-if="isCorrect" class="correct">正解です！🎉</p>
       <p v-else class="incorrect">不正解です。正解は「{{ correctAnswer }}」です。</p>
     </div>
 
+    <!-- 解説 -->
     <div class="explanation" v-if="selected" ref="explanation">
-      <h3>◎解説</h3>
-      <ol>
-        <li>重複排除で得る uniq は、初出順に {3,1,2,4}</li>
-        <li>これをバブルソートで昇順に並べ替えると {1,2,3,4}</li>
-      </ol>
-      <p>
-        よって正解は <strong>{{ correctAnswer }}</strong
-        >。
-      </p>
+      <div class="question-image">
+        <img src="@/assets/list/list8answer.png" alt="問8の解説文画像" />
+      </div>
       <button class="reset-button" @click="resetSelection">やり直す</button>
     </div>
 
+    <!-- ナビゲーション -->
     <div class="navigation">
-      <router-link to="/workbook/array7">
+      <router-link to="/workbook/list7">
         <button class="nav-button">◀ 前の問題</button>
       </router-link>
-      <router-link to="/workbook/array9">
+      <router-link to="/workbook/list9">
         <button class="nav-button">次の問題 ▶</button>
       </router-link>
     </div>
@@ -90,13 +64,13 @@
 import StatusPopup from '../../../components/StatusPopup.vue'
 
 export default {
-  name: 'ArrayPage',
+  name: 'ListPage8',
   components: { StatusPopup },
   props: ['statusMap'],
   data() {
     return {
       selected: null,
-      correctAnswer: 'ア',
+      correctAnswer: 'ア', // ★ 必要に応じて正答を変更
       isCorrect: null,
       showPopup: sessionStorage.getItem('showPopup') !== 'false',
       isMarkedForReview: false,
@@ -140,23 +114,20 @@ export default {
 </script>
 
 <style scoped>
-.array-page {
+.list-page {
   padding: 2rem;
   font-family: sans-serif;
   line-height: 1.6;
 }
-.program {
-  background: #f0f0f0;
-  padding: 1rem;
-  font-family: monospace;
-  white-space: pre-wrap;
+.question-image {
+  text-align: center;
   margin: 1rem 0;
 }
-.choices {
-  margin-top: 1rem;
-}
-.choices p {
-  margin-bottom: 0.5rem;
+.question-image img {
+  max-width: 55%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 .buttons {
   display: flex;
@@ -187,20 +158,11 @@ export default {
   border-left: 5px solid #2c3e50;
   padding: 1rem;
 }
-.explanation h3 {
-  margin-top: 0;
-}
 .reset-button {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
   cursor: pointer;
-}
-.choice-labels {
-  text-align: center;
-  font-size: 1.05rem;
-  margin-bottom: 0.8rem;
-  line-height: 1.8;
 }
 .navigation {
   text-align: center;
