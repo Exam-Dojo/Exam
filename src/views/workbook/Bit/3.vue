@@ -51,6 +51,9 @@
     <!-- ナビゲーション -->
     <div class="navigation">
       <router-link to="/workbook/array2">
+        <button class="nav-button">◀ 前の問題</button>
+      </router-link>
+      <router-link to="/workbook/array4">
         <button class="nav-button">次の問題 ▶</button>
       </router-link>
     </div>
@@ -75,7 +78,7 @@ export default {
   },
   computed: {
     number() {
-      return 1
+      return 3
     },
   },
   methods: {
