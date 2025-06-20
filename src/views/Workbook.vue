@@ -36,8 +36,9 @@ export default {
         { name: 'リスト', link: '/workbook/list1' },
         { name: 'キューとスタック', link: '/workbook/queue-stack1' },
         { name: '木構造', link: '/workbook/tree-structure1' },
-        { name: 'データの整列', link: '/workbook/data-sorting1' },
-        { name: 'データの探索', link: '/workbook/data-searching1' },
+        { name: '再帰', link: '/workbook/recursion1' },
+        { name: 'オブジェクト指向', link: '/workbook/object1' },
+        { name: 'ビット列', link: '/reference/bit1' },
       ],
     }
   },

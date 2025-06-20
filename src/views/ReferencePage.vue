@@ -23,8 +23,9 @@ export default {
         { name: 'リスト', link: '/reference/list' },
         { name: 'キューとスタック', link: '/reference/queue-stack' },
         { name: '木構造', link: '/reference/tree' },
-        { name: 'データの整列', link: '/reference/sort' },
-        { name: 'データの探索', link: '/reference/search' },
+        { name: '再帰', link: '/reference/recursion' },
+        { name: 'オブジェクト指向', link: '/reference/object' },
+        { name: 'ビット列', link: '/reference/bit' },
       ],
     }
   },
