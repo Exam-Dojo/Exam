@@ -53,26 +53,36 @@ import TreeStructure7 from '../views/workbook/TreeStructure/7.vue'
 import TreeStructure8 from '../views/workbook/TreeStructure/8.vue'
 import TreeStructure9 from '../views/workbook/TreeStructure/9.vue'
 import TreeStructure10 from '../views/workbook/TreeStructure/10.vue'
-import DataSorting1 from '../views/workbook/DataSorting/1.vue'
-import DataSorting2 from '../views/workbook/DataSorting/2.vue'
-import DataSorting3 from '../views/workbook/DataSorting/3.vue'
-import DataSorting4 from '../views/workbook/DataSorting/4.vue'
-import DataSorting5 from '../views/workbook/DataSorting/5.vue'
-import DataSorting6 from '../views/workbook/DataSorting/6.vue'
-import DataSorting7 from '../views/workbook/DataSorting/7.vue'
-import DataSorting8 from '../views/workbook/DataSorting/8.vue'
-import DataSorting9 from '../views/workbook/DataSorting/9.vue'
-import DataSorting10 from '../views/workbook/DataSorting/10.vue'
-import DataSearching1 from '../views/workbook/DataSearching/1.vue'
-import DataSearching2 from '../views/workbook/DataSearching/2.vue'
-import DataSearching3 from '../views/workbook/DataSearching/3.vue'
-import DataSearching4 from '../views/workbook/DataSearching/4.vue'
-import DataSearching5 from '../views/workbook/DataSearching/5.vue'
-import DataSearching6 from '../views/workbook/DataSearching/6.vue'
-import DataSearching7 from '../views/workbook/DataSearching/7.vue'
-import DataSearching8 from '../views/workbook/DataSearching/8.vue'
-import DataSearching9 from '../views/workbook/DataSearching/9.vue'
-import DataSearching10 from '../views/workbook/DataSearching/10.vue'
+import Recursion1 from '../views/workbook/Recursion/1.vue'
+import Recursion2 from '../views/workbook/Recursion/2.vue'
+import Recursion3 from '../views/workbook/Recursion/3.vue'
+import Recursion4 from '../views/workbook/Recursion/4.vue'
+import Recursion5 from '../views/workbook/Recursion/5.vue'
+import Recursion6 from '../views/workbook/Recursion/6.vue'
+import Recursion7 from '../views/workbook/Recursion/7.vue'
+import Recursion8 from '../views/workbook/Recursion/8.vue'
+import Recursion9 from '../views/workbook/Recursion/9.vue'
+import Recursion10 from '../views/workbook/Recursion/10.vue'
+import Object1 from '../views/workbook/Object/1.vue'
+import Object2 from '../views/workbook/Object/2.vue'
+import Object3 from '../views/workbook/Object/3.vue'
+import Object4 from '../views/workbook/Object/4.vue'
+import Object5 from '../views/workbook/Object/5.vue'
+import Object6 from '../views/workbook/Object/6.vue'
+import Object7 from '../views/workbook/Object/7.vue'
+import Object8 from '../views/workbook/Object/8.vue'
+import Object9 from '../views/workbook/Object/9.vue'
+import Object10 from '../views/workbook/Object/10.vue'
+import Bit1 from '../views/workbook/Bit/1.vue'
+import Bit2 from '../views/workbook/Bit/2.vue'
+import Bit3 from '../views/workbook/Bit/3.vue'
+import Bit4 from '../views/workbook/Bit/4.vue'
+import Bit5 from '../views/workbook/Bit/5.vue'
+import Bit6 from '../views/workbook/Bit/6.vue'
+import Bit7 from '../views/workbook/Bit/7.vue'
+import Bit8 from '../views/workbook/Bit/8.vue'
+import Bit9 from '../views/workbook/Bit/9.vue'
+import Bit10 from '../views/workbook/Bit/10.vue'
 
 const routes = [
   { path: '/', component: Home },
@@ -101,12 +111,16 @@ const routes = [
     component: () => import('../views/reference/TreeStructure.vue'),
   },
   {
-    path: '/reference/sort',
-    component: () => import('../views/reference/DataSorting.vue'),
+    path: '/reference/recursion',
+    component: () => import('../views/reference/Recursion.vue'),
   },
   {
-    path: '/reference/search',
-    component: () => import('../views/reference/DataSearching.vue'),
+    path: '/reference/object',
+    component: () => import('../views/reference/Object.vue'),
+  },
+  {
+    path: '/reference/bit',
+    component: () => import('../views/reference/Bit.vue'),
   },
 
   { path: '/workbook/array1', component: Array1 },
@@ -160,26 +174,36 @@ const routes = [
   { path: '/workbook/tree-structure8', component: TreeStructure8 },
   { path: '/workbook/tree-structure9', component: TreeStructure9 },
   { path: '/workbook/tree-structure10', component: TreeStructure10 },
-  { path: '/workbook/data-sorting1', component: DataSorting1 },
-  { path: '/workbook/data-sorting2', component: DataSorting2 },
-  { path: '/workbook/data-sorting3', component: DataSorting3 },
-  { path: '/workbook/data-sorting4', component: DataSorting4 },
-  { path: '/workbook/data-sorting5', component: DataSorting5 },
-  { path: '/workbook/data-sorting6', component: DataSorting6 },
-  { path: '/workbook/data-sorting7', component: DataSorting7 },
-  { path: '/workbook/data-sorting8', component: DataSorting8 },
-  { path: '/workbook/data-sorting9', component: DataSorting9 },
-  { path: '/workbook/data-sorting10', component: DataSorting10 },
-  { path: '/workbook/data-searching1', component: DataSearching1 },
-  { path: '/workbook/data-searching2', component: DataSearching2 },
-  { path: '/workbook/data-searching3', component: DataSearching3 },
-  { path: '/workbook/data-searching4', component: DataSearching4 },
-  { path: '/workbook/data-searching5', component: DataSearching5 },
-  { path: '/workbook/data-searching6', component: DataSearching6 },
-  { path: '/workbook/data-searching7', component: DataSearching7 },
-  { path: '/workbook/data-searching8', component: DataSearching8 },
-  { path: '/workbook/data-searching9', component: DataSearching9 },
-  { path: '/workbook/data-searching10', component: DataSearching10 },
+  { path: '/workbook/recursion1', component: Recursion1 },
+  { path: '/workbook/recursion2', component: Recursion2 },
+  { path: '/workbook/recursion3', component: Recursion3 },
+  { path: '/workbook/recursion4', component: Recursion4 },
+  { path: '/workbook/recursion5', component: Recursion5 },
+  { path: '/workbook/recursion6', component: Recursion6 },
+  { path: '/workbook/recursion7', component: Recursion7 },
+  { path: '/workbook/recursion8', component: Recursion8 },
+  { path: '/workbook/recursion9', component: Recursion9 },
+  { path: '/workbook/recursion10', component: Recursion10 },
+  { path: '/workbook/object1', component: Object1 },
+  { path: '/workbook/object2', component: Object2 },
+  { path: '/workbook/object3', component: Object3 },
+  { path: '/workbook/object4', component: Object4 },
+  { path: '/workbook/object5', component: Object5 },
+  { path: '/workbook/object6', component: Object6 },
+  { path: '/workbook/object7', component: Object7 },
+  { path: '/workbook/object8', component: Object8 },
+  { path: '/workbook/object9', component: Object9 },
+  { path: '/workbook/object10', component: Object10 },
+  { path: '/workbook/bit1', component: Bit1 },
+  { path: '/workbook/bit2', component: Bit2 },
+  { path: '/workbook/bit3', component: Bit3 },
+  { path: '/workbook/bit4', component: Bit4 },
+  { path: '/workbook/bit5', component: Bit5 },
+  { path: '/workbook/bit6', component: Bit6 },
+  { path: '/workbook/bit7', component: Bit7 },
+  { path: '/workbook/bit8', component: Bit8 },
+  { path: '/workbook/bit9', component: Bit9 },
+  { path: '/workbook/bit10', component: Bit10 },
 ]
 
 const router = createRouter({
