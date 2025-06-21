@@ -51,7 +51,7 @@ export default {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   width: 240px;
-  max-height: 300px;
+  max-height: 420px;
   overflow-y: auto;
 }
 .status-item {
