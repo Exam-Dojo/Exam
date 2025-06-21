@@ -38,7 +38,7 @@ export default {
         { name: '木構造', link: '/workbook/tree-structure1' },
         { name: '再帰', link: '/workbook/recursion1' },
         { name: 'オブジェクト指向', link: '/workbook/object1' },
-        { name: 'ビット列', link: '/reference/bit1' },
+        { name: 'ビット列', link: '/workbook/bit1' },
       ],
     }
   },
