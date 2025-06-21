@@ -44,7 +44,7 @@ export default {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  background: #fff;
+  background: #d5e3d5;
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 1rem;
