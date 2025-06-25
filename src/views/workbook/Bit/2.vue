@@ -1,17 +1,18 @@
 <template>
-  <div class="array-page">
-    <h2>分野：配列</h2>
+  <div class="bit-page">
+    <h2>分野：文法</h2>
 
-    <!-- 問題文 -->
+    <!-- 問題画像 -->
+    <div class="question-image">
+      <img src="@/assets/bit/bit2.png" alt="問2の問題文画像" />
+    </div>
 
-    <!-- 選択肢 -->
-    <div class="choices">
-      <div class="buttons">
-        <button :disabled="selected" @click="selectAnswer('ア')">ア</button>
-        <button :disabled="selected" @click="selectAnswer('イ')">イ</button>
-        <button :disabled="selected" @click="selectAnswer('ウ')">ウ</button>
-        <button :disabled="selected" @click="selectAnswer('エ')">エ</button>
-      </div>
+    <!-- 選択ボタン -->
+    <div class="buttons">
+      <button :disabled="selected" @click="selectAnswer('ア')">ア</button>
+      <button :disabled="selected" @click="selectAnswer('イ')">イ</button>
+      <button :disabled="selected" @click="selectAnswer('ウ')">ウ</button>
+      <button :disabled="selected" @click="selectAnswer('エ')">エ</button>
     </div>
 
     <!-- 状態操作 -->
@@ -26,7 +27,12 @@
     <button class="reopen-popup" v-if="!showPopup" @click="handleOpenPopup">解答状況を表示</button>
 
     <!-- ステータス吹き出し -->
-    <StatusPopup v-if="showPopup" :status-map="statusMap" @close="handleClosePopup" />
+    <StatusPopup
+      v-if="showPopup"
+      :status-map="statusMap"
+      :basePath="'/workbook/bit'"
+      @close="handleClosePopup"
+    />
 
     <!-- 判定表示 -->
     <div class="judge" v-if="selected !== null">
@@ -36,24 +42,18 @@
 
     <!-- 解説 -->
     <div class="explanation" v-if="selected" ref="explanation">
-      <h3>◎解説</h3>
-      <ol>
-        <li>重複排除で得る uniq は、初出順に {3,1,2,4}</li>
-        <li>これをバブルソートで昇順に並べ替えると {1,2,3,4}</li>
-      </ol>
-      <p>
-        よって正解は <strong>{{ correctAnswer }}</strong
-        >。
-      </p>
+      <div class="question-image">
+        <img src="@/assets/bit/bit2answer.png" alt="問2の解説文画像" />
+      </div>
       <button class="reset-button" @click="resetSelection">やり直す</button>
     </div>
 
     <!-- ナビゲーション -->
     <div class="navigation">
-      <router-link to="/workbook/array1">
+      <router-link to="/workbook/bit1">
         <button class="nav-button">◀ 前の問題</button>
       </router-link>
-      <router-link to="/workbook/array3">
+      <router-link to="/workbook/bit3">
         <button class="nav-button">次の問題 ▶</button>
       </router-link>
     </div>
@@ -64,12 +64,13 @@
 import StatusPopup from '../../../components/StatusPopup.vue'
 
 export default {
-  name: 'ArrayPage',
+  name: 'bitPage2',
   components: { StatusPopup },
   props: ['statusMap'],
   data() {
     return {
       selected: null,
+      // ★ 必要に応じて正答を変更してください
       correctAnswer: 'ア',
       isCorrect: null,
       showPopup: sessionStorage.getItem('showPopup') !== 'false',
@@ -78,7 +79,7 @@ export default {
   },
   computed: {
     number() {
-      return 2
+      return 2 // 問題番号
     },
   },
   methods: {
@@ -114,23 +115,21 @@ export default {
 </script>
 
 <style scoped>
-.array-page {
+/* --- 問題1と共通のスタイル --- */
+.bit-page {
   padding: 2rem;
   font-family: sans-serif;
   line-height: 1.6;
 }
-.program {
-  background: #f0f0f0;
-  padding: 1rem;
-  font-family: monospace;
-  white-space: pre-wrap;
+.question-image {
+  text-align: center;
   margin: 1rem 0;
 }
-.choices {
-  margin-top: 1rem;
-}
-.choices p {
-  margin-bottom: 0.5rem;
+.question-image img {
+  max-width: 55%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 .buttons {
   display: flex;
@@ -161,20 +160,11 @@ export default {
   border-left: 5px solid #2c3e50;
   padding: 1rem;
 }
-.explanation h3 {
-  margin-top: 0;
-}
 .reset-button {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
   cursor: pointer;
-}
-.choice-labels {
-  text-align: center;
-  font-size: 1.05rem;
-  margin-bottom: 0.8rem;
-  line-height: 1.8;
 }
 .navigation {
   text-align: center;
