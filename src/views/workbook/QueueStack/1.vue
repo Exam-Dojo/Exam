@@ -51,7 +51,7 @@
 
     <!-- ナビゲーション -->
     <div class="navigation">
-      <router-link to="/workbook/queuestack2">
+      <router-link to="/workbook/queue-stack2">
         <button class="nav-button">次の問題 ▶</button>
       </router-link>
     </div>
@@ -68,7 +68,7 @@ export default {
   data() {
     return {
       selected: null,
-      correctAnswer: 'ウ',
+      correctAnswer: 'ア',
       isCorrect: null,
       showPopup: sessionStorage.getItem('showPopup') !== 'false',
       isMarkedForReview: false,

@@ -70,7 +70,7 @@ export default {
   data() {
     return {
       selected: null,
-      correctAnswer: 'ウ', // ★ 正解をここで設定
+      correctAnswer: 'イ', // ★ 正解をここで設定
       isCorrect: null,
       showPopup: sessionStorage.getItem('showPopup') !== 'false',
       isMarkedForReview: false,

@@ -71,7 +71,7 @@ export default {
     return {
       selected: null,
       // ★ 必要に応じて正答を変更してください
-      correctAnswer: 'ア',
+      correctAnswer: 'エ',
       isCorrect: null,
       showPopup: sessionStorage.getItem('showPopup') !== 'false',
       isMarkedForReview: false,
