@@ -11,11 +11,6 @@
     </section>
 
     <section class="section">
-      <h2>オプション機能</h2>
-      <p>今後、問題のランダム出題機能や、タイマー付きの模擬テスト機能などを追加予定です。</p>
-    </section>
-
-    <section class="section">
       <h2>更新履歴</h2>
       <ul>
         <li>2025/10/28 - 問題間違い訂正</li>

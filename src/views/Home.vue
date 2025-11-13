@@ -64,9 +64,50 @@
 
     <section class="section">
       <h2>おすすめの参考書</h2>
-      <p>
-        科目Bに特化した参考書や問題集、レビューの高い書籍、初心者向けと上級者向けの書籍の比較などを紹介します。
-      </p>
+      <p>科目Bに特化した参考書や問題集を紹介します。</p>
+
+      <div class="book-grid">
+        <!-- 書籍①：令和8年度 かんたん合格 基本情報技術者 過去問題集 -->
+        <div class="book-item">
+          <a
+            href="https://www.amazon.co.jp/dp/4295022888?tag=asuyuh-22&linkCode=ogi&th=1&psc=1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://m.media-amazon.com/images/I/816I157PH1L._SY522_.jpg"
+              alt="かんたん合格 基本情報技術者過去問題集 令和8年度"
+            />
+            <h3>かんたん合格 基本情報技術者 過去問題集 令和8年度</h3>
+          </a>
+
+          <p class="book-desc">
+            科目Bの最新傾向を反映した過去問題集です。丁寧な解説で疑似言語の思考プロセスを理解しやすく、
+            初学者でも段階的に実力を伸ばせます。試験の出題形式に合わせた構成で、科目B対策に最適です。
+          </p>
+        </div>
+
+        <!-- 書籍②：［改訂新版］基本情報技術者【科目B】アルゴリズム×擬似言語トレーニングブック -->
+        <div class="book-item">
+          <a
+            href="https://www.amazon.co.jp/dp/4297142716?tag=asuyuh-22&linkCode=ogi&th=1&psc=1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://m.media-amazon.com/images/I/81OHWU5D2SL._SY522_.jpg"
+              alt="［改訂新版］基本情報技術者【科目B】アルゴリズム×擬似言語トレーニングブック"
+            />
+            <h3>［改訂新版］基本情報技術者【科目B】アルゴリズム×擬似言語トレーニングブック</h3>
+          </a>
+
+          <p class="book-desc">
+            豊富な図解と丁寧な説明で理解しながら進められる定番シリーズです。
+            科目Bのプログラム問題にも強く、演習問題が充実しており、
+            実践的な思考力を身につけたい受験者におすすめです。
+          </p>
+        </div>
+      </div>
     </section>
   </div>
 </template>
